@@ -3,7 +3,7 @@ Feature: As a user I want to verify that I can view images of a product
   Background:
     Given I am on the opencart homepage
 
-  Scenario Outline: As a user I want to verify MacBook images display correctly
+  Scenario Outline: As a user I want to verify product images display correctly
     Given I search for a <product> product
     And I click on the first search result
     When I click on the product image

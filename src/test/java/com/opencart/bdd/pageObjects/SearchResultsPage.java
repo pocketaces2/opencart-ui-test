@@ -1,30 +1,27 @@
 package com.opencart.bdd.pageObjects;
 
 import com.opencart.utils.IsLoaded;
-import java.time.Duration;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.LoadableComponent;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class SearchResultsPage extends LoadableComponent<SearchResultsPage> {
-
-    private WebDriver driver;
+public class SearchResultsPage extends BasePage<SearchResultsPage> {
 
     @FindBy(className = "product-layout")
     private List<WebElement> searchResults;
 
-    @FindBy(id = "content")
-    private WebElement searchHeader;
+    @FindBy(id = "product-search")
+    private WebElement searchContainer;
 
     public SearchResultsPage(WebDriver driver){
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        IsLoaded.forThis(driver).whenElementIsVisible(searchContainer);
     }
 
     public ProductPage clickFirstSearchResult(){
@@ -32,17 +29,19 @@ public class SearchResultsPage extends LoadableComponent<SearchResultsPage> {
         return new ProductPage(driver).get();
     }
 
+    public SearchResultsPage clickAddToCartOnFirstSearchResult(){
+        getSearchResultByIndex(0).findElement(By.cssSelector("button[Type=\"button\"")).click();
+        return this.get();
+    }
+
+    public String getPriceOfFirstSearchResult(){
+        return getSearchResultByIndex(0).findElement(By.className("price")).getText().split("Ex")[0];
+    }
+
     private WebElement getSearchResultByIndex(int index){
           return searchResults.get(index);
     }
 
-    @Override
-    protected void load() {
-        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(searchHeader));
-    }
 
-    @Override
-    protected void isLoaded() throws Error {
-        IsLoaded.forThis(driver).whenElementIsVisible(searchHeader);
-    }
+
 }

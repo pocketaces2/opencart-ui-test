@@ -5,14 +5,10 @@ import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.LoadableComponent;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ProductPage extends LoadableComponent<ProductPage> {
-
-    private WebDriver driver;
+public class ProductPage extends BasePage<ProductPage> {
 
     @FindBy(xpath = "(//div[@id=\"content\"]//a[@class=\"thumbnail\"])[1]")
     private WebElement primaryImageThumbnail;
@@ -27,13 +23,7 @@ public class ProductPage extends LoadableComponent<ProductPage> {
     private WebElement enlargedImageCounter;
 
     public ProductPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
-
-    @Override
-    protected void load() {
-        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(primaryImageThumbnail));
+        super(driver);
     }
 
     @Override
