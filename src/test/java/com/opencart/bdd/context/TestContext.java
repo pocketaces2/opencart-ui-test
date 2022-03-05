@@ -5,6 +5,12 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+/**
+ * Allows for sharing any data between steps definitions, test data specifically is shared using the
+ * Scenario Context
+ *
+ * @see ScenarioContext
+ */
 public class TestContext {
 
   private final PageObjectManager pageObjectManager;
@@ -12,7 +18,7 @@ public class TestContext {
   private final ScenarioContext scenarioContext;
 
 
-  public TestContext(){
+  public TestContext() {
 
     WebDriverManager.chromedriver().setup();
     driver = new ChromeDriver();
@@ -28,7 +34,7 @@ public class TestContext {
     return pageObjectManager;
   }
 
-  public ScenarioContext getScenarioContext(){
+  public ScenarioContext getScenarioContext() {
     return scenarioContext;
   }
 }

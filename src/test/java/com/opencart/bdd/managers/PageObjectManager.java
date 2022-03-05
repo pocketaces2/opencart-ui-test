@@ -8,6 +8,10 @@ import com.opencart.bdd.pageObjects.ShoppingCartPage;
 import com.opencart.bdd.pageObjects.TopToolBarPage;
 import org.openqa.selenium.WebDriver;
 
+
+/**
+ * Used for instantiating page objects and returning a single instance of the page.
+ */
 public class PageObjectManager {
 
   private final WebDriver driver;
@@ -18,9 +22,7 @@ public class PageObjectManager {
   private ShoppingCartPage shoppingCartPage;
   private TopToolBarPage topToolBarPage;
 
-
-
-  public PageObjectManager(WebDriver driver){
+  public PageObjectManager(WebDriver driver) {
     this.driver = driver;
   }
 
@@ -29,7 +31,8 @@ public class PageObjectManager {
   }
 
   public SearchResultsPage getSearchResultsPage() {
-    return (searchResultsPage == null) ? searchResultsPage = new SearchResultsPage(driver) : searchResultsPage;
+    return (searchResultsPage == null) ? searchResultsPage = new SearchResultsPage(driver)
+        : searchResultsPage;
   }
 
   public ProductPage getProductPage() {
@@ -37,7 +40,8 @@ public class PageObjectManager {
   }
 
   public ShoppingCartPage getShoppingCartPage() {
-    return (shoppingCartPage == null) ? shoppingCartPage = new ShoppingCartPage(driver) : shoppingCartPage;
+    return (shoppingCartPage == null) ? shoppingCartPage = new ShoppingCartPage(driver)
+        : shoppingCartPage;
   }
 
   public TopToolBarPage getTopToolBarPage() {

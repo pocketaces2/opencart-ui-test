@@ -3,6 +3,10 @@ package com.opencart.bdd.context;
 import java.util.EnumMap;
 import java.util.Map;
 
+/**
+ * Used for storing test data between steps, test data is normally specified in the BDD feature
+ * files
+ */
 public class ScenarioContext {
 
   private final Map<Context, Object> scenarioContext;
@@ -18,8 +22,6 @@ public class ScenarioContext {
   public <T> T get(Context key) {
     return (T) scenarioContext.get(key);
   }
-
-
 
 
 }

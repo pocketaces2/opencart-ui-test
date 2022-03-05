@@ -10,7 +10,7 @@ Feature: As a user I want to verify that I can view images of a product
     Then The product image is enlarged on screen
     And I can scroll through <numImages> images
 
-  Examples:
-  | product   | numImages |
-  | MacBook   | 5         |
-  | htc touch | 3         |
+    Examples:
+      | product   | numImages |
+      | MacBook   | 5         |
+      | htc touch | 3         |

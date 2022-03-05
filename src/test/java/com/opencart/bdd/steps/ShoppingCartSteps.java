@@ -17,7 +17,7 @@ public class ShoppingCartSteps {
   TopToolBarPage topToolBarPage;
   ShoppingCartPage shoppingCartPage;
 
-  public ShoppingCartSteps(TestContext testContext){
+  public ShoppingCartSteps(TestContext testContext) {
     this.testContext = testContext;
     topToolBarPage = testContext.getPageObjectManager().getTopToolBarPage();
     shoppingCartPage = testContext.getPageObjectManager().getShoppingCartPage();
@@ -30,9 +30,11 @@ public class ShoppingCartSteps {
 
   @Then("the products are listed correctly")
   public void theProductsAreListedCorrectly() {
-    Map<String, String> previouslyAddedProducts = testContext.getScenarioContext().get(Context.SHOPPING_CART_PRODUCT_PRICES);
+    Map<String, String> previouslyAddedProducts = testContext.getScenarioContext()
+        .get(Context.SHOPPING_CART_PRODUCT_PRICES);
     Map<String, String> displayedCartProducts = shoppingCartPage.get().getShoppingCartProducts();
-    assertThat("Products previously added to the cart do not match the products displayed on the shopping cart page",
-        previouslyAddedProducts.entrySet(), equalTo(displayedCartProducts.entrySet()) );
+    assertThat(
+        "Products previously added to the cart do not match the products displayed on the shopping cart page",
+        previouslyAddedProducts.entrySet(), equalTo(displayedCartProducts.entrySet()));
   }
 }

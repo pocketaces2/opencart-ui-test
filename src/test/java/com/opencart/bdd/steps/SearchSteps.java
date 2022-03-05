@@ -18,7 +18,7 @@ public class SearchSteps {
   SearchResultsPage searchResultsPage;
 
 
-  public SearchSteps(TestContext testContext){
+  public SearchSteps(TestContext testContext) {
     this.testContext = testContext;
     homePage = testContext.getPageObjectManager().getHomePage();
     searchResultsPage = testContext.getPageObjectManager().getSearchResultsPage();
@@ -29,13 +29,14 @@ public class SearchSteps {
 
     Map<String, String> productPrices = new HashMap<>();
 
-    for (String product : table.asList()){
+    for (String product : table.asList()) {
       searchProduct(product);
       productPrices.put(product, getFirstProductResultPrice());
       addFirstProductResultToCart();
     }
 
-    testContext.getScenarioContext().setContext(Context.SHOPPING_CART_PRODUCT_PRICES, productPrices);
+    testContext.getScenarioContext()
+        .setContext(Context.SHOPPING_CART_PRODUCT_PRICES, productPrices);
   }
 
   @Given("^I search for a (.*) product$")
@@ -45,15 +46,15 @@ public class SearchSteps {
   }
 
   @Given("^I click on the first search result$")
-  public void clickFirstResult(){
+  public void clickFirstResult() {
     searchResultsPage.get().clickFirstSearchResult();
   }
 
-  private String getFirstProductResultPrice(){
+  private String getFirstProductResultPrice() {
     return searchResultsPage.get().getPriceOfFirstSearchResult().trim();
   }
 
-  private void addFirstProductResultToCart(){
+  private void addFirstProductResultToCart() {
     searchResultsPage.get().clickAddToCartOnFirstSearchResult();
   }
 

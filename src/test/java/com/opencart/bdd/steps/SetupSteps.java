@@ -8,7 +8,7 @@ public class SetupSteps {
 
   private final TestContext testContext;
 
-  public SetupSteps(TestContext testContext){
+  public SetupSteps(TestContext testContext) {
     this.testContext = testContext;
   }
 
@@ -18,7 +18,7 @@ public class SetupSteps {
   }
 
   @After
-  public void cleanUp(){
+  public void cleanUp() {
     testContext.getDriver().quit();
   }
 

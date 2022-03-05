@@ -8,7 +8,7 @@ public abstract class BasePage<T extends BasePage<T>> extends LoadableComponent<
 
   protected WebDriver driver;
 
-  public BasePage(WebDriver driver){
+  public BasePage(WebDriver driver) {
     this.driver = driver;
     PageFactory.initElements(driver, this);
   }

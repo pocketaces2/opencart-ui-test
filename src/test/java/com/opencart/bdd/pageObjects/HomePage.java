@@ -7,28 +7,28 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage<HomePage> {
 
-    @FindBy(name = "search")
-    private WebElement searchBar;
+  @FindBy(name = "search")
+  private WebElement searchBar;
 
-    @FindBy(css = "#search button")
-    private WebElement searchBtn;
+  @FindBy(css = "#search button")
+  private WebElement searchBtn;
 
-    public HomePage(WebDriver driver){
-        super(driver);
-    }
+  public HomePage(WebDriver driver) {
+    super(driver);
+  }
 
-    public void setSearchBarText(String value){
-        searchBar.clear();
-        searchBar.sendKeys(value);
-    }
+  public void setSearchBarText(String value) {
+    searchBar.clear();
+    searchBar.sendKeys(value);
+  }
 
-    public SearchResultsPage clickSearchBtn(){
-        searchBtn.click();
-        return new SearchResultsPage(driver);
-    }
+  public SearchResultsPage clickSearchBtn() {
+    searchBtn.click();
+    return new SearchResultsPage(driver);
+  }
 
-    @Override
-    protected void isLoaded() throws Error {
-        IsLoaded.forThis(driver).whenElementIsVisible(searchBar);
-    }
+  @Override
+  protected void isLoaded() throws Error {
+    IsLoaded.forThis(driver).whenElementIsVisible(searchBar);
+  }
 }

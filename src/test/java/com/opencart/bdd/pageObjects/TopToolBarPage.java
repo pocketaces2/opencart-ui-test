@@ -5,16 +5,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class TopToolBarPage extends BasePage<TopToolBarPage>{
+public class TopToolBarPage extends BasePage<TopToolBarPage> {
 
   @FindBy(css = "a[title=\"Shopping Cart\"]")
   private WebElement shoppingCartLink;
 
-  public TopToolBarPage(WebDriver driver){
+  public TopToolBarPage(WebDriver driver) {
     super(driver);
   }
 
-  public ShoppingCartPage clickShoppingCartPageLink(){
+  public ShoppingCartPage clickShoppingCartPageLink() {
     shoppingCartLink.click();
     return new ShoppingCartPage(driver);
   }

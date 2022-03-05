@@ -1,118 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>opencart-ui-test</artifactId>
 
-    <groupId>com.tom</groupId>
-    <artifactId>opencart-ui-test</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <encoding>UTF-8</encoding>
+          <source>17</source>
+          <target>17</target>
+        </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>3.9.0</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>3.0.0-M5</version>
+      </plugin>
+    </plugins>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <hamcrest-all.version>1.3</hamcrest-all.version>
-        <selenium-java.version>4.1.2</selenium-java.version>
-        <cucumber-bom.version>7.2.3</cucumber-bom.version>
-        <junit-bom.version>5.8.2</junit-bom.version>
-        <webdrivermanager.version>5.1.0</webdrivermanager.version>
-    </properties>
+  </build>
+  <dependencies>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>io.cucumber</groupId>
-                <artifactId>cucumber-bom</artifactId>
-                <version>${cucumber-bom.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.junit</groupId>
-                <artifactId>junit-bom</artifactId>
-                <version>${junit-bom.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <dependency>
+      <artifactId>selenium-java</artifactId>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <version>${selenium-java.version}</version>
+    </dependency>
 
+    <dependency>
+      <artifactId>hamcrest-all</artifactId>
+      <groupId>org.hamcrest</groupId>
+      <scope>test</scope>
+      <version>1.3</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>cucumber-picocontainer</artifactId>
+      <groupId>io.cucumber</groupId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <artifactId>cucumber-java</artifactId>
+      <groupId>io.cucumber</groupId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <artifactId>cucumber-junit-platform-engine</artifactId>
+      <groupId>io.cucumber</groupId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <artifactId>junit-platform-suite</artifactId>
+      <groupId>org.junit.platform</groupId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <artifactId>junit-jupiter</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <artifactId>cucumber-junit</artifactId>
+      <groupId>io.cucumber</groupId>
+      <scope>test</scope>
+      <version>7.2.3</version>
+    </dependency>
+    <dependency>
+      <artifactId>webdrivermanager</artifactId>
+      <groupId>io.github.bonigarcia</groupId>
+      <scope>test</scope>
+      <version>${webdrivermanager.version}</version>
+    </dependency>
+  </dependencies>
+  <dependencyManagement>
     <dependencies>
-
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>${selenium-java.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-all</artifactId>
-            <version>1.3</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <artifactId>cucumber-picocontainer</artifactId>
-            <groupId>io.cucumber</groupId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <artifactId>cucumber-java</artifactId>
-            <groupId>io.cucumber</groupId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <artifactId>cucumber-junit-platform-engine</artifactId>
-            <groupId>io.cucumber</groupId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <artifactId>junit-platform-suite</artifactId>
-            <groupId>org.junit.platform</groupId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <artifactId>junit-jupiter</artifactId>
-            <groupId>org.junit.jupiter</groupId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>7.2.3</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>${webdrivermanager.version}</version>
-            <scope>test</scope>
-        </dependency>
+      <dependency>
+        <artifactId>cucumber-bom</artifactId>
+        <groupId>io.cucumber</groupId>
+        <scope>import</scope>
+        <type>pom</type>
+        <version>${cucumber-bom.version}</version>
+      </dependency>
+      <dependency>
+        <artifactId>junit-bom</artifactId>
+        <groupId>org.junit</groupId>
+        <scope>import</scope>
+        <type>pom</type>
+        <version>${junit-bom.version}</version>
+      </dependency>
     </dependencies>
+  </dependencyManagement>
+  <groupId>com.tom</groupId>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.9.0</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                    <source>17</source>
-                    <target>17</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
-            </plugin>
-        </plugins>
+  <modelVersion>4.0.0</modelVersion>
 
-    </build>
+  <packaging>jar</packaging>
+
+  <properties>
+    <cucumber-bom.version>7.2.3</cucumber-bom.version>
+    <hamcrest-all.version>1.3</hamcrest-all.version>
+    <junit-bom.version>5.8.2</junit-bom.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <selenium-java.version>4.1.2</selenium-java.version>
+    <webdrivermanager.version>5.1.0</webdrivermanager.version>
+  </properties>
+
+  <version>1.0-SNAPSHOT</version>
 </project>
