@@ -1,5 +1,6 @@
 package com.opencart.bdd.context;
 
+import com.opencart.bdd.managers.DriverManager;
 import com.opencart.bdd.managers.PageObjectManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -14,14 +15,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class TestContext {
 
   private final PageObjectManager pageObjectManager;
+  private final DriverManager driverManager;
   private final WebDriver driver;
   private final ScenarioContext scenarioContext;
 
 
   public TestContext() {
-
-    WebDriverManager.chromedriver().setup();
-    driver = new ChromeDriver();
+    driverManager = new DriverManager();
+    driver = driverManager.getDriver();
     pageObjectManager = new PageObjectManager(driver);
     scenarioContext = new ScenarioContext();
   }

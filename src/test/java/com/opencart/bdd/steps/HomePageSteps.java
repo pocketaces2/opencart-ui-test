@@ -4,11 +4,11 @@ import com.opencart.bdd.context.TestContext;
 import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 
-public class SetupSteps {
+public class HomePageSteps {
 
   private final TestContext testContext;
 
-  public SetupSteps(TestContext testContext) {
+  public HomePageSteps(TestContext testContext) {
     this.testContext = testContext;
   }
 
