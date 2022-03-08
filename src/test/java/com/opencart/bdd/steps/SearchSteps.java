@@ -1,6 +1,6 @@
 package com.opencart.bdd.steps;
 
-import com.opencart.bdd.context.Context;
+import com.opencart.bdd.enums.Context;
 import com.opencart.bdd.context.TestContext;
 import com.opencart.bdd.pageObjects.HomePage;
 import com.opencart.bdd.pageObjects.SearchResultsPage;

@@ -1,5 +1,6 @@
 package com.opencart.bdd.managers;
 
+import com.opencart.bdd.enums.DriverType;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,17 +14,14 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class DriverManager {
 
   private WebDriver driver;
-  private static DriverType driverType;
-
-  public DriverManager(){
-    driverType = DriverType.valueOf(System.getProperty("browser", "EDGE"));
-  }
 
   public WebDriver getDriver() {
     return driver == null ? createDriver() : driver;
   }
 
   private WebDriver createDriver(){
+    DriverType driverType = ConfigManager.getInstance().getWebDriverType();
+
     switch (driverType){
       case FIREFOX -> {
           WebDriverManager.firefoxdriver().setup();
@@ -41,6 +39,11 @@ public class DriverManager {
         throw new IllegalArgumentException("Invalid browser specified to run tests with");
       }
     }
+
+    if (ConfigManager.getInstance().isBrowserWindowMaximized()){
+      driver.manage().window().maximize();
+    }
+
     return driver;
   }
 

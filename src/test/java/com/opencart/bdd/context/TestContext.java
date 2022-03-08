@@ -1,10 +1,9 @@
 package com.opencart.bdd.context;
 
 import com.opencart.bdd.managers.DriverManager;
+import com.opencart.bdd.managers.ConfigManager;
 import com.opencart.bdd.managers.PageObjectManager;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
  * Allows for sharing any data between steps definitions, test data specifically is shared using the
