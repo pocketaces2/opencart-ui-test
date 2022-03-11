@@ -1,7 +1,5 @@
 package com.opencart.bdd.context;
 
-import com.opencart.bdd.context.ScenarioContext;
-
 /**
  * Used as keys in the scenario context enum map
  *

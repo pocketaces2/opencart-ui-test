@@ -1,13 +1,13 @@
 package com.opencart.bdd.managers;
 
 import com.opencart.bdd.driver.DriverType;
-
 import com.opencart.utils.ConfigFileReader;
 import java.util.Properties;
 
 
 /**
- * Used for supplying information about the configuration of the tests from an external properties file
+ * Used for supplying information about the configuration of the tests from an external properties
+ * file
  */
 public class ConfigManager {
 
@@ -17,7 +17,7 @@ public class ConfigManager {
   Properties properties;
 
 
-  private ConfigManager(){
+  private ConfigManager() {
     properties = ConfigFileReader.readProps(configFilePath);
   }
 
@@ -26,7 +26,7 @@ public class ConfigManager {
   }
 
   public DriverType getWebDriverType() {
-     String browser = properties.getProperty("browser");
+    String browser = properties.getProperty("browser");
 
     switch (browser.toUpperCase()) {
       case "FIREFOX" -> {
@@ -39,7 +39,9 @@ public class ConfigManager {
         return DriverType.EDGE;
       }
       default -> {
-        throw new IllegalArgumentException("Invalid or unsupported browser specified to run tests with, browser specified: " + browser);
+        throw new IllegalArgumentException(
+            "Invalid or unsupported browser specified to run tests with, browser specified: "
+                + browser);
       }
     }
   }

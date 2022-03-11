@@ -25,21 +25,24 @@ public class CustomListener implements WebDriverListener {
   Logger logger = LoggerFactory.getLogger(CustomListener.class);
 
 
-  public CustomListener(WebDriver driver){
+  public CustomListener(WebDriver driver) {
     this.driver = driver;
   }
 
   /**
-   * Listens for an error happening on the webdriver, takes a screenshot and moves to appropriate directory when triggered.
-   *
+   * Listens for an error happening on the webdriver, takes a screenshot and moves to appropriate
+   * directory when triggered.
    */
   public void onError(Object target, Method method, Object[] args, InvocationTargetException e) {
 
     var camera = (TakesScreenshot) driver;
     File screenshotError = camera.getScreenshotAs(OutputType.FILE);
-    Path screenshotDestinationPath = Paths.get(System.getProperty("user.dir") + "\\src\\test\\resources\\com\\opencart\\bdd\\screenshots\\"  + screenshotError.getName());
+    Path screenshotDestinationPath = Paths.get(
+        System.getProperty("user.dir") + "\\src\\test\\resources\\com\\opencart\\bdd\\screenshots\\"
+            + screenshotError.getName());
     try {
-      Files.move(screenshotError.toPath(), screenshotDestinationPath, StandardCopyOption.REPLACE_EXISTING);
+      Files.move(screenshotError.toPath(), screenshotDestinationPath,
+          StandardCopyOption.REPLACE_EXISTING);
     } catch (IOException ioException) {
       ioException.printStackTrace();
     }

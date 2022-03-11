@@ -1,7 +1,7 @@
 package com.opencart.bdd.managers;
 
-import com.opencart.bdd.driver.DriverType;
 import com.opencart.bdd.driver.CustomListener;
+import com.opencart.bdd.driver.DriverType;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -22,13 +22,13 @@ public class DriverManager {
     return driver == null ? createDriver() : driver;
   }
 
-  private WebDriver createDriver(){
+  private WebDriver createDriver() {
     DriverType driverType = ConfigManager.getInstance().getWebDriverType();
 
-    switch (driverType){
+    switch (driverType) {
       case FIREFOX -> {
-          WebDriverManager.firefoxdriver().setup();
-          driver = new FirefoxDriver();
+        WebDriverManager.firefoxdriver().setup();
+        driver = new FirefoxDriver();
       }
       case CHROME -> {
         WebDriverManager.chromedriver().setup();
@@ -46,9 +46,9 @@ public class DriverManager {
     return configureWebDriver(driver);
   }
 
-  private WebDriver configureWebDriver(WebDriver driver){
+  private WebDriver configureWebDriver(WebDriver driver) {
 
-    if (ConfigManager.getInstance().isBrowserWindowMaximized()){
+    if (ConfigManager.getInstance().isBrowserWindowMaximized()) {
       driver.manage().window().maximize();
     }
 
