@@ -3,7 +3,7 @@ package com.opencart.bdd.steps;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-import com.opencart.bdd.enums.Context;
+import com.opencart.bdd.context.Context;
 import com.opencart.bdd.context.TestContext;
 import com.opencart.bdd.pageObjects.ShoppingCartPage;
 import com.opencart.bdd.pageObjects.TopToolBarPage;

@@ -1,6 +1,5 @@
 package com.opencart.bdd.context;
 
-import com.opencart.bdd.enums.Context;
 import java.util.EnumMap;
 import java.util.Map;
 

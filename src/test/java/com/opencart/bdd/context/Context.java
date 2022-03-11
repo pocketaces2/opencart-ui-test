@@ -1,4 +1,4 @@
-package com.opencart.bdd.enums;
+package com.opencart.bdd.context;
 
 import com.opencart.bdd.context.ScenarioContext;
 

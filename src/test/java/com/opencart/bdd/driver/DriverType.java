@@ -1,4 +1,4 @@
-package com.opencart.bdd.enums;
+package com.opencart.bdd.driver;
 
 public enum DriverType {
   FIREFOX, CHROME, EDGE;

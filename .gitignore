@@ -43,3 +43,7 @@ deprecated
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Images #
+
+.png

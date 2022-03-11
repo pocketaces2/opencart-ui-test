@@ -1,7 +1,6 @@
 package com.opencart.bdd.context;
 
 import com.opencart.bdd.managers.DriverManager;
-import com.opencart.bdd.managers.ConfigManager;
 import com.opencart.bdd.managers.PageObjectManager;
 import org.openqa.selenium.WebDriver;
 

@@ -1,11 +1,14 @@
 package com.opencart.bdd.managers;
 
-import com.opencart.bdd.enums.DriverType;
+import com.opencart.bdd.driver.DriverType;
+import com.opencart.bdd.driver.CustomListener;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.events.EventFiringDecorator;
+import org.openqa.selenium.support.events.WebDriverListener;
 
 
 /**
@@ -40,13 +43,18 @@ public class DriverManager {
       }
     }
 
+    return configureWebDriver(driver);
+  }
+
+  private WebDriver configureWebDriver(WebDriver driver){
+
     if (ConfigManager.getInstance().isBrowserWindowMaximized()){
       driver.manage().window().maximize();
     }
 
-    return driver;
+    WebDriverListener listener = new CustomListener(driver);
+
+    return new EventFiringDecorator(listener).decorate(driver);
   }
-
-
 
 }

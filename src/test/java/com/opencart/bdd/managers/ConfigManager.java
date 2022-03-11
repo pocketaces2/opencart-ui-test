@@ -1,6 +1,6 @@
 package com.opencart.bdd.managers;
 
-import com.opencart.bdd.enums.DriverType;
+import com.opencart.bdd.driver.DriverType;
 
 import com.opencart.utils.ConfigFileReader;
 import java.util.Properties;
