@@ -1,7 +1,7 @@
 # opencart-ui-test
 
-A repository to test the open cart website which can be found
-at https://www.opencart.com/index.php?route=cms/demo
+A repository to test the OpenCart frontend which can be found
+at https://demo.opencart.com/
 
 Using the following tech stack:
 
